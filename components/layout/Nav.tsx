@@ -62,7 +62,7 @@ export function Nav() {
               }
             }}
             className="group flex items-center gap-2 font-display text-lg uppercase tracking-tight"
-            aria-label="Mahi Jain — home"
+            aria-label="Mahi Jain, home"
           >
             <span className="text-fg">Mahi</span>
             <span className="text-accent transition-transform group-hover:translate-x-0.5">
@@ -137,7 +137,7 @@ export function Nav() {
                 }}
                 className="mt-8 flex items-center gap-2 text-sm text-muted"
               >
-                <Search size={14} /> Search — press ⌘K
+                <Search size={14} /> Search (press ⌘K)
               </button>
             </div>
           </motion.div>

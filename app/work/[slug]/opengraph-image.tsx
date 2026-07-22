@@ -33,7 +33,7 @@ export default async function OG({ params }: { params: Promise<{ slug: string }>
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ color: "#8f8f96", fontSize: 26, letterSpacing: 2, display: "flex" }}>
-            MAHI JAIN — CASE STUDY
+            MAHI JAIN · CASE STUDY
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{ width: 12, height: 12, borderRadius: 999, background: "#c7f94e" }} />

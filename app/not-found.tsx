@@ -7,7 +7,7 @@ export default function NotFound() {
       <span className="font-mono text-xs uppercase tracking-widest text-accent">Error 404</span>
       <h1 className="font-display display-lg mt-6 uppercase text-fg">Lost the thread</h1>
       <p className="mt-4 max-w-sm text-muted">
-        This page doesn&apos;t exist — but there&apos;s plenty worth seeing back home.
+        This page doesn&apos;t exist, but there&apos;s plenty worth seeing back home.
       </p>
       <Link
         href="/"

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/data/site";
 
-export const alt = `${site.name} — ${site.role}`;
+export const alt = `${site.name} · ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -40,7 +40,7 @@ export default function OG() {
         </div>
 
         <div style={{ color: "#8f8f96", fontSize: 30, maxWidth: 900, display: "flex" }}>
-          Shipping AI-native products — from agentic pipelines to production payment flows.
+          Shipping AI-native web apps end to end, from database schema to pixel-perfect interfaces.
         </div>
       </div>
     ),

@@ -3,46 +3,71 @@ export type SkillGroup = {
   items: string[];
 };
 
-/** Grouped honestly — no fake percentage bars. Names map to icons in the Skills component. */
+/** Grouped honestly, no fake percentage bars. Mirrors the resume's skill sections. */
 export const skills: SkillGroup[] = [
   {
-    label: "Languages",
-    items: ["TypeScript", "JavaScript", "C++"],
+    label: "Core",
+    items: ["C++", "SQL", "Data Structures & Algorithms", "DBMS", "OOP", "OS", "Design Principles"],
   },
   {
     label: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "HTML", "CSS"],
+    items: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Radix UI / ShadCN",
+      "Accessibility",
+    ],
   },
   {
     label: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "JWT Auth"],
+    items: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Schema Design",
+      "JWT Auth",
+      "Webhooks",
+      "Microservices",
+    ],
   },
   {
-    label: "Data",
-    items: ["MongoDB", "PostgreSQL", "Supabase", "Redis"],
+    label: "Databases",
+    items: ["PostgreSQL", "MongoDB", "Supabase"],
+  },
+  {
+    label: "Testing & Quality",
+    items: ["Unit Testing", "Code Reviews", "API Validation"],
   },
   {
     label: "AI & Automation",
-    items: ["Gemini", "Hugging Face", "OpenRouter", "Playwright", "BullMQ"],
+    items: ["LLM APIs (OpenRouter, Gemini Vision)", "Prompt Engineering", "MCP", "Playwright"],
   },
   {
-    label: "Tooling & Cloud",
-    items: ["Git", "GitHub", "Vercel", "Railway", "Firebase", "Cloudinary"],
+    label: "Practices",
+    items: ["Agile / Scrum", "CI/CD", "Git", "GitHub Actions", "Vercel", "Railway", "Cursor / Claude Code"],
   },
 ];
 
 /** Tech names that get a marquee row in the hero / strip. */
 export const marqueeTech: string[] = [
   "TypeScript",
-  "React",
+  "React.js",
   "Next.js",
   "Node.js",
-  "Supabase",
+  "Express",
   "PostgreSQL",
   "MongoDB",
+  "Supabase",
   "Tailwind CSS",
-  "Gemini",
+  "Redux Toolkit",
+  "Razorpay",
+  "Gemini Vision",
+  "OpenRouter",
   "Playwright",
-  "Redis",
-  "Framer Motion",
+  "JWT Auth",
+  "MCP",
 ];

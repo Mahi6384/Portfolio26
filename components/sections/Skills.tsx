@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function Skills() {
   return (
-    <Section id="skills">
+    <Section id="skills" className="pt-6 sm:pt-8">
       <SectionHeading index="03" kicker="Skills" title="The toolkit" />
 
       <div className="mt-16 border-t border-line">

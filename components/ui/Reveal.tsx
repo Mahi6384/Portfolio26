@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 /**
  * Fade + rise on scroll into view.
  * The `data-reveal` marker lets a reduced-motion CSS rule force it visible
- * (see globals.css) — so we never branch on useReducedMotion (which would cause
+ * (see globals.css), so we never branch on useReducedMotion (which would cause
  * an SSR/client hydration mismatch).
  */
 export function Reveal({
@@ -39,7 +39,12 @@ export function Reveal({
   );
 }
 
-/** A single line that rises out from behind a mask — for big editorial headlines. */
+/**
+ * A single line that rises out from behind a mask, for big editorial headlines.
+ * Plays on mount (not on scroll-into-view): it's used for the above-the-fold hero
+ * headline, which must reveal reliably on load. `data-reveal` still lets the
+ * reduced-motion CSS force it visible.
+ */
 export function MaskLine({
   children,
   className,
@@ -55,8 +60,7 @@ export function MaskLine({
         data-reveal
         className={cn("block", className)}
         initial={{ y: "110%" }}
-        whileInView={{ y: "0%" }}
-        viewport={{ once: true, amount: 0.6 }}
+        animate={{ y: "0%" }}
         transition={{ duration: 0.9, ease: EASE, delay }}
       >
         {children}

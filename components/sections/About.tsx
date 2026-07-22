@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { site } from "@/lib/data/site";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { CodePanel } from "@/components/ui/CodePanel";
 
 const stats = [
-  { value: "500+", label: "users on shipped payment flows" },
-  { value: "15+", label: "reusable UI components built" },
-  { value: "4", label: "full-stack products shipped" },
-  { value: "3", label: "engineers mentored" },
+  { value: "15+", label: "reusable React components" },
+  { value: "20%", label: "faster UI dev cycles" },
+  { value: "30%", label: "less backend load" },
+  { value: "2", label: "interns mentored" },
 ];
 
 export function About() {
@@ -53,24 +53,9 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative mx-auto max-w-sm lg:ml-auto"
+            className="relative mx-auto max-w-md lg:ml-auto"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-line-strong">
-              <Image
-                src="/me.jpg"
-                alt="Mahi Jain"
-                width={640}
-                height={800}
-                className="h-auto w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
-                priority={false}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                <span className="rounded-full border border-line-strong bg-bg/70 px-3 py-1 font-mono text-[11px] text-fg backdrop-blur">
-                  {site.education.degree} · {site.education.period}
-                </span>
-              </div>
-            </div>
+            <CodePanel />
             <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-2xl border border-accent/30" />
           </motion.div>
         </div>

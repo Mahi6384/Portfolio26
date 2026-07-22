@@ -1,16 +1,14 @@
-"use client";
-
-import { useState } from "react";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 /**
- * Lazy live-site preview. Loads the real site in an iframe only on click
- * (avoids perf hit + login redirects on load). Always offers an "open in new tab"
- * fallback in case the site blocks framing (X-Frame-Options).
+ * Live site preview, loaded eagerly.
+ *
+ * The iframe mounts with the page so the real site is already loading by the time the
+ * reader scrolls down to it, with no click-to-load gate. A shimmer sits behind the frame so
+ * the slot never looks empty while the site boots, and the "Open ↗" link is always there
+ * as a fallback if a site ever refuses to be framed.
  */
 export function LivePreview({ url, chrome }: { url: string; chrome?: string }) {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <div className="overflow-hidden rounded-xl border border-line-strong bg-elevated shadow-xl">
       <div className="flex items-center gap-2 border-b border-line px-4 py-3">
@@ -30,27 +28,18 @@ export function LivePreview({ url, chrome }: { url: string; chrome?: string }) {
         </a>
       </div>
       <div className="relative aspect-[16/10] w-full">
-        {loaded ? (
-          <iframe
-            src={url}
-            title={`Live preview of ${chrome || url}`}
-            className="h-full w-full bg-white"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-          />
-        ) : (
-          <button
-            onClick={() => setLoaded(true)}
-            className="group flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-elevated to-surface"
-          >
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-accent/40 bg-accent-soft text-accent transition-transform group-hover:scale-110">
-              <Play size={22} className="ml-1" />
-            </span>
-            <span className="font-mono text-xs uppercase tracking-wider text-muted">
-              Load live preview
-            </span>
-          </button>
-        )}
+        {/* sits behind the iframe so the slot is never blank while the site boots */}
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-elevated to-surface">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-faint">
+            Loading live site…
+          </span>
+        </div>
+        <iframe
+          src={url}
+          title={`Live preview of ${chrome || url}`}
+          className="relative h-full w-full bg-white"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        />
       </div>
     </div>
   );

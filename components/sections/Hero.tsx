@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { site } from "@/lib/data/site";
@@ -16,12 +16,6 @@ export function Hero() {
   const gx = useSpring(mx, { stiffness: 60, damping: 20 });
   const gy = useSpring(my, { stiffness: 60, damping: 20 });
   const glow = useMotionTemplate`radial-gradient(560px circle at ${gx}% ${gy}%, var(--accent-soft), transparent 65%)`;
-
-  const [roleIdx, setRoleIdx] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setRoleIdx((i) => (i + 1) % site.roles.length), 2200);
-    return () => clearInterval(id);
-  }, []);
 
   function onMove(e: React.MouseEvent) {
     const el = ref.current;
@@ -84,21 +78,10 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="max-w-md text-pretty text-base leading-relaxed text-muted sm:text-lg"
           >
-            {site.firstName} Jain — a <span className="text-fg">{site.role.toLowerCase()}</span> in{" "}
+            {site.firstName} Jain, a <span className="text-fg">{site.role.toLowerCase()}</span> in{" "}
             {site.location.split(",")[0]} shipping{" "}
-            <span className="relative inline-flex h-[1.2em] overflow-hidden align-bottom">
-              <motion.span
-                key={roleIdx}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="font-serif-italic text-fg"
-              >
-                {site.roles[roleIdx]}
-              </motion.span>
-            </span>{" "}
-            software from database to interface.
+            <span className="font-serif-italic text-accent">AI-native</span> software from database
+            to interface.
           </motion.p>
 
           <motion.div

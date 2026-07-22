@@ -9,7 +9,7 @@ import { Tag } from "@/components/ui/Pill";
 
 export function Experience() {
   return (
-    <Section id="experience">
+    <Section id="experience" className="pb-12 sm:pb-14">
       <SectionHeading index="02" kicker="Experience" title="Where I've shipped" />
 
       <div className="mt-16 border-t border-line">
@@ -52,7 +52,7 @@ export function Experience() {
         ))}
 
         <Reveal>
-          <div className="flex flex-col gap-2 py-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="font-display text-xl uppercase text-fg">Education</p>
             <p className="text-sm text-muted">
               {site.education.degree} · {site.education.school}, {site.education.place}

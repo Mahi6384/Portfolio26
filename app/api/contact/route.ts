@@ -24,7 +24,7 @@ function isEmail(v: string) {
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (limited(ip)) {
-    return NextResponse.json({ error: "Too many requests — try again in a minute." }, { status: 429 });
+    return NextResponse.json({ error: "Too many requests. Try again in a minute." }, { status: 429 });
   }
 
   let body: { name?: string; email?: string; message?: string };
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
       from,
       to,
       replyTo: email,
-      subject: `Portfolio contact — ${name}`,
+      subject: `Portfolio contact from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
     });
     if (error) throw new Error(error.message);

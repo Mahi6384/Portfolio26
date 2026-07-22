@@ -58,7 +58,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-line pt-6 font-mono text-xs text-faint sm:flex-row sm:items-center sm:justify-between">
-          <span>© {year} {site.name} — {site.location}</span>
+          <span>© {year} {site.name} · {site.location}</span>
           <div className="flex items-center gap-5">
             <Link href="/#work" className="link-underline hover:text-muted">
               Work

@@ -159,7 +159,7 @@ export function Contact() {
                 >
                   {state === "sending" && <Loader2 size={16} className="animate-spin" />}
                   {state === "sent" && <Check size={16} />}
-                  {state === "sending" ? "Sending…" : state === "sent" ? "Sent — thank you" : "Send message"}
+                  {state === "sending" ? "Sending…" : state === "sent" ? "Sent, thank you" : "Send message"}
                 </motion.button>
                 {state === "error" && (
                   <span className="text-sm text-red-400">{error}</span>

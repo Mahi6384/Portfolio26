@@ -195,6 +195,63 @@ html.lenis body {
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
+/* ------------------------------------------------------------------ */
+/*  CODE PANEL (About) — typewriter reveal + blinking caret            */
+/* ------------------------------------------------------------------ */
+@keyframes type-in {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--tw);
+  }
+}
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes progress-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--pw, 74%);
+  }
+}
+.code-line {
+  display: inline-block;
+  overflow: hidden;
+  white-space: pre;
+  vertical-align: bottom;
+  width: var(--tw);
+  /* jump-start, not the default jump-end: `end` steps output 0 … (n-1)/n and never
+     reach 1, which leaves the final character clipped once the animation finishes. */
+  animation: type-in var(--dur) steps(var(--steps), jump-start) var(--delay) both;
+}
+.code-caret {
+  animation: caret-blink 1.05s step-end infinite;
+}
+.code-progress {
+  animation: progress-fill 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both;
+}
+/* Hold the typewriter at the start until the panel scrolls into view. */
+.code-line,
+.code-caret,
+.code-progress {
+  animation-play-state: paused;
+}
+[data-typing="on"] .code-line,
+[data-typing="on"] .code-caret,
+[data-typing="on"] .code-progress {
+  animation-play-state: running;
+}
+
 /* Underline sweep for links */
 .link-underline {
   background-image: linear-gradient(var(--accent), var(--accent));
@@ -236,5 +293,13 @@ html.lenis body {
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
+  }
+  /* Never leave the code panel paused-at-empty: run (instantly) to the finished state
+     regardless of whether the in-view trigger fired. */
+  .code-line,
+  .code-caret,
+  .code-progress {
+    animation-play-state: running !important;
+    animation-delay: 0s !important;
   }
 }

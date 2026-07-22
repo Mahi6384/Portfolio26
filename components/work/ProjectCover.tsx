@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Project } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 
-/** A framed project visual: browser or phone chrome wrapping a screenshot or branded placeholder. */
+/** A real project screenshot in browser chrome (or a branded placeholder until one exists). */
 export function ProjectCover({
   project,
   priority = false,
@@ -27,22 +27,6 @@ export function ProjectCover({
     <BrandedPlaceholder project={project} />
   );
 
-  if (cover.frame === "phone") {
-    return (
-      <div className={cn("flex justify-center", className)}>
-        <div className="relative w-full max-w-[300px]">
-          <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-line-strong bg-elevated p-2 shadow-2xl">
-            <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-bg" />
-            <div className="relative aspect-[9/19] overflow-hidden rounded-[2rem]">
-              {media}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // browser frame
   return (
     <div
       className={cn(
