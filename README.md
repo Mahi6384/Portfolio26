@@ -31,6 +31,8 @@ All content lives in `lib/data/`, edit these with no component changes needed:
 - `projects.ts`: case studies
 - `experience.ts`, `skills.ts`
 
+**Résumé sync:** the site mirrors the latest résumé (SDE-2 at Acowale, previously Qureal AI and YouEkko). The downloadable PDF is `public/Mahi-Jain-Resume.pdf`; when the résumé changes, replace that file and update `site.ts` (status, about), `experience.ts` and `skills.ts` to match.
+
 Swap the accent color in one place: `--accent` in `app/globals.css`.
 
 ## Project media (real screenshots only)

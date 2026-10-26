@@ -9,19 +9,19 @@ export const site = {
 
   // Current status shown in the hero pill.
   status: {
-    label: "Full-Stack Developer @ Qureal AI",
+    label: "SDE-2 @ Acowale",
     open: true, // shows an "open to work" dot
   },
 
   // One-liner used in metadata + share cards.
   tagline:
-    "Full-stack developer building production AI-native web apps end to end, from database schema and REST APIs to pixel-perfect React interfaces.",
+    "Full-stack developer building design systems, identity platforms and multi-tenant ERP software, from Postgres schemas and NestJS APIs to polished React interfaces.",
 
   // Longer About narrative (rewritten, punchier).
   about: [
-    "I'm a full-stack developer who ships production web apps end to end: React and Next.js on the front, Node and Express REST APIs and real data models behind them.",
-    "At Qureal AI I build revenue-critical features on a fast-moving AI product: Razorpay billing and subscription flows, an AI image studio, production APIs, and a reusable component system the whole platform builds on. I work from Figma hi-fi designs to pixel-perfect, accessible UI, and I model the PostgreSQL and MongoDB data behind it.",
-    "Outside work I push the same stack further: an agentic AI health platform on Gemini Vision, a Chrome automation engine for job applications, and a freelance commerce build. Strong CS fundamentals in C++ and DSA keep the architecture honest, and lately most of my curiosity points at applied AI and the systems around it.",
+    "I'm a full-stack developer who ships production software end to end: React and Next.js on the front, Node.js and NestJS services with PostgreSQL behind them.",
+    "At Acowale, a multi-tenant ERP and accounting platform, I built the company-wide design system from an empty repo into a versioned npm package with 61+ components used by every app, drove the move to a centralized passkey-based SSO identity platform, and work on the double-entry accounting backend. Before that, at Qureal AI, I built Razorpay billing flows, an AI image studio and a social media scheduler.",
+    "Outside work I push the same stack further: an installable AI health PWA for elderly parents and a job-automation platform with a browser extension. Lately most of my curiosity points at design systems, auth and security, and applied AI.",
   ],
 
   socials: {
